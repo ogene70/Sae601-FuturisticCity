@@ -5,6 +5,7 @@ import WarningCard from "../components/Cards/Warningcard";
 import ProjectsCard from "../components/Cards/ProjectsCard";
 import Nav from "../components/Sections/Nav";
 import LeafMap from "../components/Maps/LeafletMap";
+import Hero from "../components/Sections/Hero";
 
 function Home() {
   const navigate = useNavigate();
@@ -19,29 +20,14 @@ function Home() {
   return (
     <>
       <Nav deconnexion={logout} />
-
-      <div className="d-flex container-fluid row bg-primary p-0 mb-5 card bg-dark text-white align-items-center" id="hero">
-        <img className="p-0 m-0 card-img"
-          src="https://img.freepik.com/photos-gratuite/scene-projet-environnement-3d_23-2148896006.jpg"
-          alt="heroimage"
-          style={{ maxHeight: "60vh", aspectRatio: 3 / 2, objectFit: "cover" }}
-        />
-        <div className="d-flex flex-column card-img-overlay col-5 align-items-start justify-content-center">
-          <h5 className="card-title">Card title</h5>
-          <p className="card-text">This is a wider card with supporting text...</p>
-          <p className="card-text">Last updated 3 mins ago</p>
-        </div>
-      </div>
-
+        <Hero/>
       <h1>Vous êtes connecté {userData?.user_id ?? "USER"}</h1>
-         <button className="btn pblue text-white ">+ Signalement </button>
+         <button className="btn p-3 m-3 col-1 pblue text-white ">+ AjouteSignalement </button>
         <LeafMap/>
-
       <div className="container-fluid flex-column">
-        <h3>Alertes importantes</h3>
+        <h3>Ca se passe en ce moment</h3>
         <WarningCard src={img} type="Travaux" message={img} />
       </div>
-
       <div className="container-fluid flex-column">
         <h3>Projets citoyens à venir</h3>
         <ProjectsCard />
